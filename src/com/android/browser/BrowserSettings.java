@@ -270,6 +270,7 @@ public class BrowserSettings implements OnSharedPreferenceChangeListener,
         settings.setSavePassword(rememberPasswords());
         settings.setSaveFormData(saveFormdata());
         settings.setUseWideViewPort(isWideViewport());
+        settings.setWebSocketsEnabled(isWebSocketsEnabled());
 
         String ua = mCustomUserAgents.get(settings);
         if (ua != null) {
@@ -852,6 +853,11 @@ public class BrowserSettings implements OnSharedPreferenceChangeListener,
     public float getInvertedContrast() {
         return 1 + (mPrefs.getInt(PREF_INVERTED_CONTRAST, 0) / 10f);
     }
+
+    public boolean isWebSocketsEnabled() {
+        return mPrefs.getBoolean(PREF_ENABLE_WEBSOCKETS, false);
+    }
+
 
     // -----------------------------
     // getter/setters for privacy_security_preferences.xml
